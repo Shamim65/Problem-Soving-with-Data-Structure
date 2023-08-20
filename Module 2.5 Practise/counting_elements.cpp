@@ -1,27 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int main()
-{
+ {
     int n;
-    cin>>n;
-    vector<int>A(n);
-    for(int i=0;i<n;i++)
-    {
-        cin>>A[i];
+    cin >> n;
+
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i)
+     {
+        cin >> a[i];
     }
-    int count =0;
-    for(int i=0;i<n;i++)
+
+    sort(a.begin(), a.end()); // Sort the array for efficient searching
+
+    int count = 0;
+    for (int i = 0; i < n; ++i) 
     {
-        for(int j=i+1;j<n;j++)
-        {
-            if(A[i]==A[j] && j==i+1)
-            {
-                count++;
-                break;
-            }
+        if (binary_search(a.begin(), a.end(), a[i] + 1)) {
+            count++;
         }
     }
-    cout<<count<<endl;
-    
+
+    cout << count <<endl;
+
     return 0;
 }

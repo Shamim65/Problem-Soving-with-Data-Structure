@@ -9,32 +9,17 @@ int main()
     {
         cin>>a[i];
     }
-    sort(a,a+n);
     while(q--)
     {
         int x;
         cin>>x;
         bool flag=false;
-        int l=0,r=n-1;
-
-        // binary search
-        while(l<=r)
+        for(int i=0;i<n;i++)
         {
-            int mid=(l+r)/2;
-            if(a[mid] == x)
+            if(a[i]==x)
             {
                 flag=true;
                 break;
-            }
-            if(x>a[mid])
-            {
-                // dane
-                l=mid+1;
-            }
-            else 
-            {
-                // bame
-                r=mid-1;
             }
         }
 

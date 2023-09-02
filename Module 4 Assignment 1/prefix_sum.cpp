@@ -10,10 +10,16 @@ int main()
     {
         cin>>v[i];
     }
-    pre[0]=v[0];
-    for(int i=1;i<n;i++)
+    // pre[0]=v[0];
+    // for(int i=1;i<n;i++)
+    // {
+    //     pre[i]=v[i]+pre[i-1];
+    // }
+    int sum=0;
+    for(int i=0;i<n;i++)
     {
-        pre[i]=v[i]+pre[i-1];
+        sum+=v[i];
+        pre[i]=sum;
     }
     for(int i=0;i<n;i++)
     {

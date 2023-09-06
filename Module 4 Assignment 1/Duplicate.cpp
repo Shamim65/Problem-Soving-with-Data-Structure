@@ -5,8 +5,8 @@ int main()
     int n;
     cin>>n;
     vector<int>v(n);
-    int max_element(v.begin(),v.end());
-    // vector<int>frequency(10001,0);
+    int Max_element= * max_element(v.begin(),v.end());
+    vector<int>frequency(Max_element+1,0);
     for(int i=0;i<n;i++)
     {
         cin>>v[i];

@@ -1,33 +1,29 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long
+const int N = 1e6 + 10;
+
 int main()
 {
-    int n;
-    cin>>n;
-    vector<int>v(n);
-    int Max_element= * max_element(v.begin(),v.end());
-    vector<int>frequency(Max_element+1,0);
-    for(int i=0;i<n;i++)
+    ll n, x;
+    cin >> n;
+    vector<ll> a;
+    for (int i = 0; i < n; i++)
     {
-        cin>>v[i];
-        frequency[v[i]]++;
+        cin >> x;
+        a.push_back(x);
     }
-    bool Duplicate=false;
-    for(int i=0;i<n;i++)
+
+    sort(a.begin(), a.end());
+
+    for (int i = 1; i < a.size(); i++)
     {
-        if(frequency[v[i]]>1)
+        if (a[i] == a[i - 1])
         {
-            Duplicate=true;
-            break;
+            cout << "YES" << endl;
+            return 0;
         }
     }
-    if(Duplicate)
-    {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        cout<<"NO"<<endl;
-    }
-    return 0;
+
+    cout << "NO" << endl;
 }

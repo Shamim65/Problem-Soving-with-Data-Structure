@@ -1,25 +1,32 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int main()
-{
-    int n;
-    cin>>n;
-    if(n%2==0||n<1)
-    {
-        return 1;
+
+int main() {
+    int N;
+    cin >> N;
+
+    // Check if N is an odd positive integer
+    if (N % 2 == 0 || N < 1) {
+        cout << "Invalid input. N should be a positive odd integer." << endl;
+        return 1;  // Exit with an error code
     }
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<n;j++)
-        {
-            if(i==j || j==n-1-i)
-            {
-                cout<< "X";
+
+    int half = N / 2;
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (i == j || j == N - 1 - i) {
+                cout << "X";
+            } else if (i < j && i + j < N - 1) {
+                cout << " ";
+            } else if (i > j && i + j > N - 1) {
+                cout << " ";
+            } else {
+                cout << "\\";
             }
-            else
-            cout<<" ";
         }
-        cout<<endl;
+        cout << endl;
     }
+
     return 0;
 }

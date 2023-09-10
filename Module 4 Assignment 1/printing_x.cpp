@@ -11,21 +11,42 @@ int main() {
         return 1;  // Exit with an error code
     }
 
-    int half = N / 2;
+    int spacesBefore = 0;
+    int spacesBetween = N - 2;
 
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (i == j || j == N - 1 - i) {
-                cout << "X";
-            } else if (i < j && i + j < N - 1) {
-                cout << " ";
-            } else if (i > j && i + j > N - 1) {
-                cout << " ";
-            } else {
-                cout << "\\";
-            }
+    for (int i = 1; i <= N; i++) {
+        // Print leading spaces
+        for (int j = 1; j <= spacesBefore; j++) {
+            cout << " ";
         }
-        cout << endl;
+
+        cout << "\\"; // Print the left diagonal
+
+        // Print spaces between the diagonals
+        for (int j = 1; j <= spacesBetween; j++) {
+            cout << " ";
+        }
+
+        if (i != (N + 1) / 2) {
+            cout << "/";
+        } else {
+            cout << "X"; // Print 'X' in the center row
+        }
+
+        // Print spaces between the diagonals
+        for (int j = 1; j <= spacesBetween; j++) {
+            cout << " ";
+        }
+
+        cout << "/" << endl; // Print the right diagonal
+
+        if (i < (N + 1) / 2) {
+            spacesBefore++;
+            spacesBetween -= 2;
+        } else {
+            spacesBefore--;
+            spacesBetween += 2;
+        }
     }
 
     return 0;

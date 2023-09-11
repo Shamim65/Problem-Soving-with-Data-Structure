@@ -40,7 +40,13 @@ int main() {
 
         cout << "/" << endl; // Print the right diagonal
 
-        
+        if (i < (N + 1) / 2) {
+            spacesBefore++;
+            spacesBetween -= 2;
+        } else {
+            spacesBefore--;
+            spacesBetween += 2;
+        }
     }
 
     return 0;

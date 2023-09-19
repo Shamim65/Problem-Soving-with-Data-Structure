@@ -1,23 +1,55 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int N;
-    cin >> N;
-
-    // Check if N is an odd positive integer
-    if (N % 2 == 0 || N < 1) {
-        cout << "Invalid input. N should be a positive odd integer." << endl;
-        return 1;  // Exit with an error code
-    }
-
-    int spacesBefore = 0;
-    int spacesBetween = N - 2;
-
-    for (int i = 1; i <= N; i++) {
-        // Print leading spaces
-        for (int j = 1; j <= spacesBefore; j++) {
-            cout << " ";
+int main()
+{
+    int N ;
+    cin >> N ;
+    int mid = N / 2 ;
+    
+    for(int i = 0 ; i < N ; i++){
+        char start = '\\', end = '/' ;
+        char mid_s = ' ', space = ' ';
+        int start_pos = 0, end_pos = N - 1;
+        
+        if(i == mid)
+        {
+            mid_s = 'X' ;
+            start = end = ' ';
+        }
+        else if(i < mid)
+        {
+            start_pos = i;
+            end_pos = N - i - 1;
+        }
+        else
+        {
+            start_pos = N - i - 1;
+            end_pos = i ;
+            swap(start, end) ;
         }
 
+        for(int j = 0 ; j < N; j ++)
+        {
+            if (j == mid)
+            {
+                cout << mid_s;
+            }
+            else if(j == start_pos)
+            {
+                cout << start;
+            }
+            else if(j == end_pos)
+            {
+                cout << end;
+            }
+            else
+            {
+                cout << space;
+            }
+        }
         
+        cout << endl;
+    }
+
+    return 0;
+}

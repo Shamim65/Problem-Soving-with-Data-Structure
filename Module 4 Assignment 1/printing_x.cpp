@@ -20,27 +20,4 @@ int main() {
             cout << " ";
         }
 
-        cout << "\\"; // Print the left diagonal
-
-        // Print spaces between the diagonals
-        for (int j = 1; j <= spacesBetween; j++) {
-            cout << " ";
-        }
-
-        if (i != (N + 1) / 2) {
-            cout << "/";
-        } else {
-            cout << "X"; // Print 'X' in the center row
-        }
-
-        // Print spaces between the diagonals
-        for (int j = 1; j <= spacesBetween; j++) {
-            cout << " ";
-        }
-
-        cout << "/" << endl; // Print the right diagonal
-
-    }
-
-    return 0;
-}
+        
